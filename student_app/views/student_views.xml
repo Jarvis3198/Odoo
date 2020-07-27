@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="student_view_order_form" model="ir.ui.view">
+            <field name="name">student.student.form</field>
+            <field name="model">student.student</field>
+            <field name="arch" type="xml">
+                <form string="Studnet App">
+                    <sheet>
+                        <group>
+                            <field name="student_name"/>
+                            <field name="student_marks"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="student_view_order_tree" model="ir.ui.view">
+            <field name="name">student.student.tree</field>
+            <field name="model">student.student</field>
+            <field name="arch" type="xml">
+                <tree string="Studnet App">
+                    <field name="student_name"/>
+                    <field name="student_marks"/>
+                </tree>
+            </field>
+        </record>
+        <record id="student_view_order_search" model="ir.ui.view">
+            <field name="name">student.student.search</field>
+            <field name="model">student.student</field>
+            <field name="arch" type="xml">
+                <search string="Studnet App">
+                    <field name="student_name"/>
+                    <field name="student_marks"/>
+                </search>
+            </field>
+        </record>
+        
+        <record id="action_students_order" model="ir.actions.act_window">
+            <field name="name">Student App</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">student.student</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <menuitem id="student_main_menu"
+            name="Student"
+            sequence="1"/>
+        
+        <menuitem id="student_order"
+            name="Student"
+            parent="student_main_menu"
+            action="action_students_order"
+            sequence="1"/>
+
+    </data>
+</odoo>

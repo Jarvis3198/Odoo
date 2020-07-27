@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="teacher_view_order_form" model="ir.ui.view">
+            <field name="name">teacher.teacher.form</field>
+            <field name="model">teacher.teacher</field>
+            <field name="arch" type="xml">
+                <form string="Teachers App">
+                    <sheet>
+                        <group>
+                            <field name="teacher_name"/>
+                            <field name="teacher_salary"/>
+                            <field name="in_service"/>
+                            <field name="join_date"/>
+                            <field name="signed_on"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="teacher_view_order_tree" model="ir.ui.view">
+            <field name="name">teacher.teacher.tree</field>
+            <field name="model">teacher.teacher</field>
+            <field name="arch" type="xml">
+                <tree string="Teachers App">
+                    <field name="teacher_name"/>
+                    <field name="teacher_salary"/>
+                    <field name="in_service"/>
+                    <field name="join_date"/>
+                    <field name="signed_on"/>
+                </tree>
+            </field>
+        </record>
+        <record id="teacher_view_order_search" model="ir.ui.view">
+            <field name="name">teacher.teacher.search</field>
+            <field name="model">teacher.teacher</field>
+            <field name="arch" type="xml">
+                <search string="Teachers App">
+                    <field name="teacher_name"/>
+                    <field name="teacher_salary"/>
+                	<field name="in_service"/>
+                    <field name="join_date"/>
+                    <field name="signed_on"/>
+                </search>
+            </field>
+        </record>
+
+        
+
+        <record id="teacher_view_graph" model="ir.ui.view">
+            <field name="name">teacher.teacher.graph</field>
+            <field name="model">teacher.teacher</field>
+            <field name="arch" type="xml">
+                <graph string="Teachers App" orientation="horizontal" type="bar"> 
+                    <field name="teacher_salary"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="teacher_view_pivot" model="ir.ui.view">
+            <field name="name">teacher.teacher.pivot</field>
+            <field name="model">teacher.teacher</field>
+            <field name="arch" type="xml">
+                <pivot string="Teachers App"> 
+                    <field name="teacher_salary"/>
+                    <field name="teacher_name"/>
+                </pivot>
+            </field>
+        </record>
+
+
+        <record id="teacher_view_calendar" model="ir.ui.view">
+            <field name="name">teacher.teacher.calendar</field>
+            <field name="model">teacher.teacher</field>
+            <field name="arch" type="xml">
+                <calendar string="calendar"
+                 date_start="join_date">
+           			<field name="teacher_name"/>
+           		</calendar>
+
+
+            </field>
+        </record>
+
+
+
+        <record id="teacher_view_order_kanban" model="ir.ui.view">
+            <field name="name">teacher.teacher.kanban</field>
+            <field name="model">teacher.teacher</field>
+            <field name="arch" type="xml">
+                <kanban>
+
+                </kanban>
+            </field>
+        </record>
+
+        
+        <record id="action_teachers_order" model="ir.actions.act_window">
+            <field name="name">Tree</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">teacher.teacher</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+         <record id="action_teachers_graph" model="ir.actions.act_window">
+            <field name="name">Graph</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">teacher.teacher</field>
+            <field name="view_mode">graph</field>
+        </record>
+
+        <record id="action_teachers_pivot" model="ir.actions.act_window">
+            <field name="name">Pivot</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">teacher.teacher</field>
+            <field name="view_mode">pivot</field>
+        </record>
+
+        <record id="action_teachers_calendar" model="ir.actions.act_window">
+            <field name="name">Calendar</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">teacher.teacher</field>
+            <field name="view_mode">calendar</field>
+        </record>
+
+        <record id="action_teachers_kanban" model="ir.actions.act_window">
+            <field name="name">Kanban</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">teacher.teacher</field>
+            <field name="view_mode">kanban</field>
+        </record>
+        
+        <menuitem id="teacher_main_menu"
+            name="Main_Menu"
+            sequence="1"/>
+        
+        <menuitem id="teacher_graph"
+            name="Graph"
+            parent="teacher_main_menu"
+            action="action_teachers_graph"
+            sequence="1"/>
+
+        <menuitem id="teacher_order"
+            name="Tree"
+            parent="teacher_main_menu"
+            action="action_teachers_order"
+            sequence="2"/>
+
+        <menuitem id="teacher_pivot"
+            name="Pivot"
+            parent="teacher_main_menu"
+            action="action_teachers_pivot"
+            sequence="3"/>
+
+        <menuitem id="teacher_calender"
+            name="Calender"
+            parent="teacher_main_menu"
+            action="action_teachers_calendar"
+            sequence="4"/>
+
+        <menuitem id="teacher_kanban"
+            name="Kanban"
+            parent="teacher_main_menu"
+            action="action_teachers_kanban"
+            sequence="5"/>
+
+    </data>
+</odoo>

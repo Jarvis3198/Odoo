@@ -1,16 +1,17 @@
 # -*- coding: utf-8 -*-
 
 {
-    'name': 'Teacher App',
+    'name': 'School Management App',
     'version': '13.0.1.0',
-    'category': 'Teacher',
-    'summary': 'My Second App',
+    'category': 'Education',
+    'summary': 'An app for mamagement of students and teachers',
     'description': """
-    My Second App
+    An app for mamagement of students and teachers
     """,
     'depends': ['base'],
     'data': [
         'security/ir.model.access.csv',
+        'views/student_views.xml',
         'views/teacher_views.xml'
     ],
     'installable': True,

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="student_view_order_form" model="ir.ui.view">
+            <field name="name">student.student.form</field>
+            <field name="model">student.student</field>
+            <field name="arch" type="xml">
+                <form string="Student App">
+                    <sheet>
+                        <group>
+                            <field name="student_name"/>
+                            <field name="student_marks"/>
+                        </group>
+                        <group>    
+                            <field name="s_photo"/>
+                            <field name="s_selection"/>
+                            <field name="join_date"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="student_view_order_tree" model="ir.ui.view">
+            <field name="name">student.student.tree</field>
+            <field name="model">student.student</field>
+            <field name="arch" type="xml">
+                <tree string="Studnet App">
+                    <field name="student_name"/>
+                    <field name="student_marks"/>
+                    <field name="s_photo"/>
+                    <field name="s_selection"/>
+                    <field name="join_date"/>
+                </tree>
+            </field>
+        </record>
+        <record id="student_view_order_search" model="ir.ui.view">
+            <field name="name">student.student.search</field>
+            <field name="model">student.student</field>
+            <field name="arch" type="xml">
+                <search string="Studnet App">
+                    <field name="student_name"/>
+                    <field name="student_marks"/>
+                    <field name="s_photo"/>
+                    <field name="s_selection"/>
+                    <field name="join_date"/>
+                    <filter string="Semester 1" domain="[('s_selection', '=like', 'sel1')]" name="my_student_orders_filter"/>
+                    <filter string="Semester 2" domain="[('s_selection', '=like', 'sel2')]" name="my_student_orders_filter"/>
+                    <filter string="Semester 3" domain="[('s_selection', '=like', 'sel3')]" name="my_student_orders_filter"/>
+                    <filter string="Semester 4" domain="[('s_selection', '=like', 'sel4')]" name="my_student_orders_filter"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="student_view_order_graph" model="ir.ui.view">
+            <field name="name">student.student.graph</field>
+            <field name="model">student.student</field>
+            <field name="arch" type="xml">
+                <graph string="Studnet App">
+                    <field name="student_name"/>
+                    <field name="student_marks"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="student_view_order_calender" model="ir.ui.view">
+            <field name="name">student.student.calender</field>
+            <field name="model">student.student</field>
+            <field name="arch" type="xml">
+                <calendar string="Studnet App" date_start="join_date">
+                    <field name="student_name"/>
+                </calendar>
+            </field>
+        </record>
+
+        <record id="student_view_order_pivot" model="ir.ui.view">
+            <field name="name">student.student.pivot</field>
+            <field name="model">student.student</field>
+            <field name="arch" type="xml">
+                <pivot string="Studnet App">
+                    <field name="student_name"/>
+                    <field name="student_marks"/>
+                    <field name="s_photo"/>
+                    <field name="s_selection"/>
+                </pivot>
+            </field>
+        </record>
+        
+        <record id="action_students_order" model="ir.actions.act_window">
+            <field name="name">Student</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">student.student</field>
+            <field name="view_mode">tree,form,pivot,graph,calendar</field>
+        </record>
+        
+        <menuitem id="school_management_root"
+            name="School Management"
+            sequence="1"/>
+        
+        <menuitem id="student_order"
+            name="Student"
+            parent="school_management_root"
+            action="action_students_order"
+            sequence="1"/>
+
+    </data>
+</odoo>

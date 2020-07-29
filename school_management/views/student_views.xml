@@ -9,12 +9,13 @@
                     <sheet>
                         <group>
                             <field name="student_name"/>
-                            <field name="student_marks"/>
-                        </group>
-                        <group>    
-                            <field name="s_photo"/>
-                            <field name="s_selection"/>
+                            <field name="student_address"/>
+                            <field name="student_marks"/>   
+                            <field name="currently_studying"/>
                             <field name="join_date"/>
+                            <field name="s_photo" widget="image" class="oe_avatar"/>
+                            <field name="signed_on"/>
+                            <field name="s_selection"/>
                         </group>
                     </sheet>
                 </form>
@@ -26,10 +27,13 @@
             <field name="arch" type="xml">
                 <tree string="Studnet App">
                     <field name="student_name"/>
-                    <field name="student_marks"/>
-                    <field name="s_photo"/>
-                    <field name="s_selection"/>
+                    <field name="student_address"/>
+                    <field name="student_marks"/>   
+                    <field name="currently_studying"/>
                     <field name="join_date"/>
+                    <field name="s_photo" widget="image" class="oe_avatar"/>
+                    <field name="signed_on"/>
+                    <field name="s_selection"/>
                 </tree>
             </field>
         </record>
@@ -39,10 +43,13 @@
             <field name="arch" type="xml">
                 <search string="Studnet App">
                     <field name="student_name"/>
-                    <field name="student_marks"/>
-                    <field name="s_photo"/>
-                    <field name="s_selection"/>
+                    <field name="student_address"/>
+                    <field name="student_marks"/>   
+                    <field name="currently_studying"/>
                     <field name="join_date"/>
+                    <field name="s_photo"/>
+                    <field name="signed_on"/>
+                    <field name="s_selection"/>
                     <filter string="Semester 1" domain="[('s_selection', '=like', 'sel1')]" name="my_student_orders_filter"/>
                     <filter string="Semester 2" domain="[('s_selection', '=like', 'sel2')]" name="my_student_orders_filter"/>
                     <filter string="Semester 3" domain="[('s_selection', '=like', 'sel3')]" name="my_student_orders_filter"/>
@@ -68,6 +75,13 @@
             <field name="arch" type="xml">
                 <calendar string="Studnet App" date_start="join_date">
                     <field name="student_name"/>
+                    <field name="student_address"/>
+                    <field name="student_marks"/>   
+                    <field name="currently_studying"/>
+                    <field name="join_date"/>
+                    <field name="s_photo"/>
+                    <field name="signed_on"/>
+                    <field name="s_selection"/>
                 </calendar>
             </field>
         </record>
@@ -78,18 +92,75 @@
             <field name="arch" type="xml">
                 <pivot string="Studnet App">
                     <field name="student_name"/>
-                    <field name="student_marks"/>
+                    <field name="student_address"/>
+                    <field name="student_marks"/>   
+                    <field name="currently_studying"/>
+                    <field name="join_date"/>
                     <field name="s_photo"/>
+                    <field name="signed_on"/>
                     <field name="s_selection"/>
                 </pivot>
             </field>
         </record>
+
+        <record id="student_view_order_kanban" model="ir.ui.view">
+            <field name="name">student.student.kanban</field>
+            <field name="model">student.student</field>
+            <field name="arch" type="xml">
+                
+
+                <kanban class="o_kanban_mobile">
+                    
+                    <field name="student_name"/>
+                    <field name="student_address"/>
+                    <field name="student_marks"/>   
+                    <field name="currently_studying"/>
+                    <field name="join_date"/>
+                    <field name="s_photo"/>
+                    <field name="signed_on"/>
+                    <field name="s_selection"/>
+
+                    
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                                <div class="o_kanban_record_top mb16">
+                                    <div class="o_kanban_record_headings mt4">
+                                        <strong class="o_kanban_record_title"><span><t t-esc="record.student_name.value"/></span></strong>
+                                    </div>
+                                    
+                                </div>
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left text-muted">
+                                        <span><t t-esc="record.student_marks.value"/> <t t-esc="record.student_address.value"/></span>
+                                        
+                                    </div>
+                                    <div class="oe_kanban_bottom_right">
+                                        
+                                        
+                                        <div class="o_kanban_image">
+                                            <field name="s_photo" widget="image"/>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+
+
+
+
+            </field>
+        </record>
+
         
         <record id="action_students_order" model="ir.actions.act_window">
             <field name="name">Student</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">student.student</field>
-            <field name="view_mode">tree,form,pivot,graph,calendar</field>
+            <field name="view_mode">tree,form,pivot,graph,calendar,kanban</field>
         </record>
         
         <menuitem id="school_management_root"

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="subject_view_order_form" model="ir.ui.view">
+            <field name="name">subject.subject.form</field>
+            <field name="model">subject.subject</field>
+            <field name="arch" type="xml">
+                <form string="Subject form">
+                    <sheet>
+                        <group>
+                        <field name="subject_name"/>
+                        <field name="subject_code"/>
+                        <field name="start_date"/>    
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="subject_view_order_tree" model="ir.ui.view">
+            <field name="name">subject.subject.tree</field>
+            <field name="model">subject.subject</field>
+            <field name="arch" type="xml">
+                <tree string="Subject tree">
+                    <field name="subject_name"/>
+                    <field name="subject_code"/>
+                    <field name="start_date"/> 
+                </tree>
+            </field>
+        </record>
+        <record id="subject_view_order_search" model="ir.ui.view">
+            <field name="name">subject.subject.search</field>
+            <field name="model">subject.subject</field>
+            <field name="arch" type="xml">
+                <search string="Subject search">
+                    <field name="subject_name"/>
+                    <field name="subject_code"/>
+                    <field name="start_date"/> 
+                </search>
+            </field>
+        </record>
+
+        <record id="subject_view_order_graph" model="ir.ui.view">
+            <field name="name">subject.subject.graph</field>
+            <field name="model">subject.subject</field>
+            <field name="arch" type="xml">
+                <graph string="Subject graph">
+                    <field name="subject_name"/>
+                    <field name="subject_code"/>
+                    <field name="start_date"/> 
+                </graph>
+            </field>
+        </record>
+
+        <record id="subject_view_order_pivot" model="ir.ui.view">
+            <field name="name">subject.subject.pivot</field>
+            <field name="model">subject.subject</field>
+            <field name="arch" type="xml">
+                <pivot string="Subject graph">
+                    <field name="subject_name"/>
+                    <field name="subject_code"/>
+                    <field name="start_date"/> 
+                </pivot>
+            </field>
+        </record>
+
+        <record id="subject_view_order_calendar" model="ir.ui.view">
+            <field name="name">subject.subject.calendar</field>
+            <field name="model">subject.subject</field>
+            <field name="arch" type="xml">
+                <calendar string="Subject graph" date_start="start_date">
+                    <field name="subject_name"/>
+                    <field name="subject_code"/>
+                    <field name="start_date"/> 
+                </calendar>
+            </field>
+        </record>
+
+        <record id="subject_view_order_kanban" model="ir.ui.view">
+            <field name="name">subject.subject.kanban</field>
+            <field name="model">subject.subject</field>
+            <field name="arch" type="xml">
+                
+
+                <kanban class="o_kanban_mobile">
+                            
+                    <field name="subject_name"/>
+                    <field name="subject_code"/>
+                    <field name="start_date"/>
+                    
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                                <div class="o_kanban_record_top mb16">
+                                    <div class="o_kanban_record_headings mt4">
+                                        <strong class="o_kanban_record_title"><span><t t-esc="record.subject_name.value"/>  </span></strong>
+                                    </div>
+                                    
+                                </div>
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left text-muted">
+                                        <span><t t-esc="record.subject_code.value"/></span>
+                                   
+                                    </div>
+                                    <div class="oe_kanban_bottom_right">
+                                        <t t-esc="record.start_date.value"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+
+
+
+
+            </field>
+        </record>
+
+ 
+        <record id="action_subject_order" model="ir.actions.act_window">
+            <field name="name">Subject</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">subject.subject</field>
+            <field name="view_mode">tree,form,pivot,graph,calendar,kanban</field>
+        </record>
+        
+        
+        
+        <menuitem id="subject_order"
+            name="Subject"
+            parent="school_management.school_management_root"
+            action="action_subject_order"
+            sequence="3"/>
+
+    </data>
+</odoo>

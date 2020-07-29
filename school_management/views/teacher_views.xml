@@ -6,13 +6,52 @@
             <field name="model">teacher.teacher</field>
             <field name="arch" type="xml">
                 <form string="Teachers App">
+           
+          <!--      
+                <header>
+                    <field name="authorized_transaction_ids" invisible="1"/>
+                    <button name="payment_action_capture" type="object"
+                            string="Capture Transaction" class="oe_highlight"
+                            attrs="{'invisible': [('authorized_transaction_ids', '=', [])]}"/>
+                    <button name="payment_action_void" type="object"
+                            string="Void Transaction"
+                            confirm="Are you sure you want to void the authorized transaction? This action can't be undone."
+                            attrs="{'invisible': [('authorized_transaction_ids', '=', [])]}"/>
+                    <button name="%(sale.action_view_sale_advance_payment_inv)d" string="Create Invoice"
+                        type="action" class="btn-primary"
+                        attrs="{'invisible': [('invoice_status', '!=', 'to invoice')]}"/>
+                    <button name="%(sale.action_view_sale_advance_payment_inv)d" string="Create Invoice"
+                        type="action" context="{'default_advance_payment_method': 'percentage'}"
+                        attrs="{'invisible': ['|',('invoice_status', '!=', 'no'), ('state', '!=', 'sale')]}"/>
+                    <button name="action_quotation_send" string="Send by Email" type="object" states="draft" class="btn-primary"/>
+                    <button name="action_quotation_send" type="object" string="Send PRO-FORMA Invoice"
+                      groups="sale.group_proforma_sales" class="btn-primary"
+                      attrs="{'invisible': ['|', ('state', '!=', 'draft'), ('invoice_count','&gt;=',1)]}" context="{'proforma': True}"/>
+                    <button name="action_confirm" id="action_confirm"
+                        string="Confirm" class="btn-primary" type="object"
+                        attrs="{'invisible': [('state', 'not in', ['sent'])]}"/>
+                    <button name="action_confirm"
+                        string="Confirm" type="object"
+                        attrs="{'invisible': [('state', 'not in', ['draft'])]}"/>
+                    <button name="action_quotation_send" type="object" string="Send PRO-FORMA Invoice" groups="sale.group_proforma_sales" attrs="{'invisible': ['|', ('state', '=', 'draft'), ('invoice_count','&gt;=',1)]}" context="{'proforma': True}"/>
+                    <button name="action_quotation_send" string="Send by Email" type="object" states="sent,sale"/>
+                    <button name="action_cancel" states="draft,sent,sale" type="object" string="Cancel"/>
+                    <button name="action_draft" states="cancel" type="object" string="Set to Quotation"/>
+                    
+                </header>
+			-->
+
+
                     <sheet>
                         <group>
                             <field name="teacher_name"/>
-                            <field name="teacher_salary"/>
+                            <field name="teacher_surname"/>
+                            <field name="teacher_salary"/>  
                             <field name="in_service"/>
                             <field name="join_date"/>
+                            <field name="t_photo"/>
                             <field name="signed_on"/>
+                            <field name="t_selection"/>
                         </group>
                     </sheet>
                 </form>
@@ -23,11 +62,14 @@
             <field name="model">teacher.teacher</field>
             <field name="arch" type="xml">
                 <tree string="Teachers App">
-                    <field name="teacher_name"/>
-                    <field name="teacher_salary"/>
+                	<field name="teacher_name"/>
+                    <field name="teacher_surname"/>
+                    <field name="teacher_salary"/>  
                     <field name="in_service"/>
                     <field name="join_date"/>
+                    <field name="t_photo"/>
                     <field name="signed_on"/>
+                    <field name="t_selection"/>
                 </tree>
             </field>
         </record>
@@ -37,10 +79,16 @@
             <field name="arch" type="xml">
                 <search string="Teachers App">
                     <field name="teacher_name"/>
-                    <field name="teacher_salary"/>
-                	<field name="in_service"/>
+                    <field name="teacher_surname"/>
+                    <field name="teacher_salary"/>  
+                    <field name="in_service"/>
                     <field name="join_date"/>
+                    <field name="t_photo"/>
                     <field name="signed_on"/>
+                    <field name="t_selection"/>
+                    <filter string="Primary" domain="[('t_selection', '=like', 'tsel1')]" name="my_teachers_orders_filter"/>
+                    <filter string="Secondary" domain="[('t_selection', '=like', 'tsel2')]" name="my_teachers_orders_filter"/>
+                    <filter string="Higher Secondary" domain="[('t_selection', '=like', 'tsel3')]" name="my_teachers_orders_filter"/>
                 </search>
             </field>
         </record>
@@ -58,8 +106,14 @@
             <field name="model">teacher.teacher</field>
             <field name="arch" type="xml">
                 <pivot string="Teachers App"> 
-                    <field name="teacher_salary"/>
-                    <field name="teacher_name"/>
+            		<field name="teacher_name"/>
+                    <field name="teacher_surname"/>
+                    <field name="teacher_salary"/>  
+                    <field name="in_service"/>
+                    <field name="join_date"/>
+                    <field name="t_photo"/>
+                    <field name="signed_on"/>
+                    <field name="t_selection"/>
                 </pivot>
             </field>
         </record>
@@ -68,7 +122,14 @@
             <field name="model">teacher.teacher</field>
             <field name="arch" type="xml">
                 <calendar string="calendar" date_start="join_date">
-           			<field name="teacher_name"/>
+   					<field name="teacher_name"/>
+                    <field name="teacher_surname"/>
+                    <field name="teacher_salary"/>  
+                    <field name="in_service"/>
+                    <field name="join_date"/>
+                    <field name="t_photo"/>
+                    <field name="signed_on"/>
+                    <field name="t_selection"/>
            		</calendar>
             </field>
         </record>
@@ -80,9 +141,15 @@
                 
 
 				<kanban class="o_kanban_mobile">
-                    <field name="teacher_name"/>
-                    <field name="teacher_salary"/>
-                    <field name="join_date"/>
+                    		
+                    		<field name="teacher_name"/>
+                            <field name="teacher_surname"/>
+                            <field name="teacher_salary"/>  
+                            <field name="in_service"/>
+                            <field name="join_date"/>
+                            <field name="t_photo"/>
+                            <field name="signed_on"/>
+                            <field name="t_selection"/>
 
                     
                     <templates>
@@ -90,17 +157,22 @@
                             <div t-attf-class="oe_kanban_card oe_kanban_global_click">
                                 <div class="o_kanban_record_top mb16">
                                     <div class="o_kanban_record_headings mt4">
-                                        <strong class="o_kanban_record_title"><span><t t-esc="record.teacher_salary.value"/></span></strong>
+                                        <strong class="o_kanban_record_title"><span><t t-esc="record.teacher_name.value"/> <t t-esc="record.teacher_surname.value"/> </span></strong>
                                     </div>
                                     
                                 </div>
                                 <div class="o_kanban_record_bottom">
                                     <div class="oe_kanban_bottom_left text-muted">
-                                        <span><t t-esc="record.teacher_name.value"/> <t t-esc="record.teacher_salary.value"/></span>
-                                        <field name="teacher_name"/>
+                                        <span><t t-esc="record.teacher_salary.value"/></span>
+                                   
                                     </div>
                                     <div class="oe_kanban_bottom_right">
-                                        <field name="teacher_salary"/>
+                                        
+                                    	<div class="o_kanban_image">
+											<field name="t_photo" widget="image"/>
+										</div>
+
+                                   
                                     </div>
                                 </div>
                             </div>

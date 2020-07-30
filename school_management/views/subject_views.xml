@@ -46,7 +46,6 @@
                 <graph string="Subject graph">
                     <field name="subject_name"/>
                     <field name="subject_code"/>
-                    <field name="start_date"/> 
                 </graph>
             </field>
         </record>

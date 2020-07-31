@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import api,fields, models
 
 
 class Recess(models.Model):
@@ -8,3 +8,9 @@ class Recess(models.Model):
 
     recess_name = fields.Char(String="Subject name")
     #lunch_id = fields.Many2one('lunch.lunch', string="Lunch")
+    
+    
+    @api.model
+    def create(self, vals):
+            res = super(Recess, self).create(vals)
+            return res

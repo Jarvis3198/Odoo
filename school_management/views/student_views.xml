@@ -12,25 +12,38 @@
                         <field name="state" widget="statusbar" statusbar_visible="studying,done"/>
                     </header>
                     <sheet>
-                        
+                        <group>
+                            <group>
+                                <field name="teacher_id"/>
+                            </group>
+                            <group>
+                            </group>
+                        </group>
                     <notebook>
                         <page name="Student General info" string="Student General info">
                             <group col="4">
                                 <field name="student_name" required="True"/>
+                                <field name="student_surname"/>
                                 <field name="student_address"/>
                                 <field name="s_selection"/>
+                                <field name="age"/>
+                                <field name="currently_studying" />
+                                <field name="join_date"/>
                             </group>
                         </page>
                         <page name="Student Grade info" string="Student Grade info">
                             <group col="4">    
                                 <field name="student_marks" attrs="{'required': [('currently_studying', '=', True)]}"/>   
-                                <field name="currently_studying" />
-                                <field name="join_date"/>
+                                <field name="student_Physics_marks"/>
+                                <field name="student_Chemistry_marks"/>
+                                <field name="student_Math_marks"/>
+                                <field name="scholarship"/>
                             </group>
                         </page>
                         <page name="Student Biographic info" string="Student Biographic info">        
                             <group col="4">    
                                 <field name="s_photo" widget="image" class="oe_avatar"/>
+                                <field name="medical_problems"/>
                                 <field name="signed_on" attrs="{'readonly': [('currently_studying', '=', True)]}"/>
                             </group>
                         </page>
@@ -52,6 +65,7 @@
                     <field name="s_photo"/>
                     <field name="signed_on"/>
                     <field name="s_selection"/>
+                    <field name="age"/>
                 </tree>
             </field>
         </record>
@@ -68,6 +82,7 @@
                     <field name="s_photo"/>
                     <field name="signed_on"/>
                     <field name="s_selection"/>
+                    <field name="age"/>
                     <filter string="Semester 1" domain="[('s_selection', '=like', 'sel1')]" name="my_student_orders_filter_sem1"/>
                     <filter string="Semester 2" domain="[('s_selection', '=like', 'sel2')]" name="my_student_orders_filter_sem2"/>
                     <filter string="Semester 3" domain="[('s_selection', '=like', 'sel3')]" name="my_student_orders_filter_sem3"/>

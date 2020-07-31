@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="lunch_view_order_form" model="ir.ui.view">
+            <field name="name">lunch.lunch.form</field>
+            <field name="model">lunch.lunch</field>
+            <field name="arch" type="xml">
+                <form string="lunch form">
+                    <sheet>
+                        <group>
+                        <field name="lunch_name"/>
+                        <!-- <field name="recess_id"/> -->
+                        <!-- <field name="recess_ids" widget="many2many_tags"/> -->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="lunch_view_order_tree" model="ir.ui.view">
+            <field name="name">lunch.lunch.tree</field>
+            <field name="model">lunch.lunch</field>
+            <field name="arch" type="xml">
+                <tree string="lunch tree">
+                    <field name="lunch_name"/>
+                    <!-- <field name="recess_id"/> -->
+                    <!-- <field name="recess_ids" widget="many2many_tags"/> -->
+                </tree>
+            </field>
+        </record>
+        <record id="lunch_view_order_search" model="ir.ui.view">
+            <field name="name">lunch.lunch.search</field>
+            <field name="model">lunch.lunch</field>
+            <field name="arch" type="xml">
+                <search string="lunch search">
+                    <field name="lunch_name"/>
+                    <!-- <field name="recess_id"/> -->
+                    <!-- <field name="recess_ids" widget="many2many_tags"/> -->
+                </search>
+            </field>
+        </record>
+
+ 
+
+ 
+        <record id="action_lunch_order" model="ir.actions.act_window">
+            <field name="name">Lunch</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">lunch.lunch</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        
+        
+        <menuitem id="lunch_order"
+            name="Lunch"
+            parent="school_management.school_management_root"
+            action="action_lunch_order"
+            sequence="4"/>
+
+    </data>
+</odoo>

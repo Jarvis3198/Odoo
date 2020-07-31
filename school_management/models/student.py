@@ -1,10 +1,11 @@
 
-from odoo import fields, models
+from odoo import api, fields, models
 
 
 class Student(models.Model):
     _name = "student.student"
     _description = 'My Student Module'
+    _rec_name = 'student_name'
 
     student_name = fields.Char(string="Student Name")
     student_surname = fields.Char(string="Student Surname")
@@ -29,11 +30,30 @@ class Student(models.Model):
         ('done', 'Graduated'),
     ], string='Selection Status', readonly=True, copy=False, store=True, default='studying')
 
+    teacher_id = fields.Many2one('teacher.teacher', string="Teacher")
 
     def action_state_graduate(self):
-    	self.write({'state': 'done'})
-    	self.write({'currently_studying': False})
+        self.write({'state': 'done'})
+        self.write({'currently_studying': False})
+        return {}
 
     def action_state_enroll(self):
-    	self.write({'state': 'studying'})
-    	self.write({'currently_studying': True})
+        self.write({'state': 'studying'})
+        self.write({'currently_studying': True})
+
+    @api.model
+    def create(self, vals):
+        print("Create Method Called")
+        res = super(Student, self).create(vals)
+        res.age = 25
+        return res
+
+    def write(self, vals):
+        res = super(Student, self).write(vals)
+        print("Write Method Called")
+        return res
+
+    def unlink(self):
+        res = super(Student, self).unlink()
+        print("Unlink method called")
+        return res

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="recess_view_order_form" model="ir.ui.view">
+            <field name="name">recess.recess.form</field>
+            <field name="model">recess.recess</field>
+            <field name="arch" type="xml">
+                <form string="recess form">
+                    <sheet>
+                        <group>
+                        <field name="recess_name"/>
+                        <!-- <field name="lunch_id"/> -->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="recess_view_order_tree" model="ir.ui.view">
+            <field name="name">recess.recess.tree</field>
+            <field name="model">recess.recess</field>
+            <field name="arch" type="xml">
+                <tree string="recess tree">
+                    <field name="recess_name"/>
+                    <!-- <field name="lunch_id"/> -->
+                </tree>
+            </field>
+        </record>
+        <record id="recess_view_order_search" model="ir.ui.view">
+            <field name="name">recess.recess.search</field>
+            <field name="model">recess.recess</field>
+            <field name="arch" type="xml">
+                <search string="recess search">
+                    <field name="recess_name"/>
+                    <!-- <field name="lunch_id"/> -->
+                </search>
+            </field>
+        </record>
+
+ 
+
+ 
+        <record id="action_recess_order" model="ir.actions.act_window">
+            <field name="name">Recess</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">recess.recess</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        
+        
+        <menuitem id="recess_order"
+            name="Recess"
+            parent="school_management.school_management_root"
+            action="action_recess_order"
+            sequence="5"/>
+
+    </data>
+</odoo>

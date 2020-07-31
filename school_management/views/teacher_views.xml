@@ -20,14 +20,27 @@
 
 
                     <sheet>
-                        
+                        <group>
+                        	<group>
+                        		<field name="students_ids" widget="many2many_tags"/>
+                        	</group>
+                        	<group>
+                        	</group>
+                        </group>
                     	<notebook>
+                    		<page name="Studetns" string="Studnet">
+                    			<group>
+                    				<field name="student_ids"/>
+                    			</group>
+                    		</page>
                     		<page name="Teacher General Info" string="Teacher info">
                         
                         		<group col="4">
                             		<field name="teacher_name"/>
                             		<field name="teacher_surname"/>
                             		<field name="t_photo"/>
+                            		<field name="teacher_address"/>
+                            		<field name="age"/>
                         		</group>
                         	</page>
 
@@ -37,6 +50,7 @@
                             		<field name="in_service" />
                             		<field name="join_date" attrs="{'readonly': [('teacher_name', '=', True)]}"/>
                             		<field name="signed_on"/>
+                            		<field name="blood_group"/>
                             	</group>
                             </page>
                             <page name="Teacher Teaching level info" string="Teacher Classes Info">
@@ -58,12 +72,15 @@
                 <tree string="Teachers App">
                 	<field name="teacher_name"/>
                     <field name="teacher_surname"/>
-                    <field name="teacher_salary"/>  
+                    <field name="teacher_salary"/>
+                    <field name="teacher_address"/>
+                    <field name="age"/> 
                     <field name="in_service"/>
                     <field name="join_date"/>
                     <field name="t_photo"/>
                     <field name="signed_on"/>
                     <field name="t_selection"/>
+                    <field name="blood_group"/>
                 </tree>
             </field>
         </record>
@@ -74,12 +91,15 @@
                 <search string="Teachers App">
                     <field name="teacher_name"/>
                     <field name="teacher_surname"/>
-                    <field name="teacher_salary"/>  
+                    <field name="teacher_salary"/>
+                    <field name="teacher_address"/>
+                    <field name="age"/> 
                     <field name="in_service"/>
                     <field name="join_date"/>
                     <field name="t_photo"/>
                     <field name="signed_on"/>
                     <field name="t_selection"/>
+                    <field name="blood_group"/>
                     <filter string="Primary" domain="[('t_selection', '=like', 'tsel1')]" name="my_teachers_orders_filter_primary"/>
                     <filter string="Secondary" domain="[('t_selection', '=like', 'tsel2')]" name="my_teachers_orders_filter"/>
                     <filter string="Higher Secondary" domain="[('t_selection', '=like', 'tsel3')]" name="my_teachers_orders_filter"/>
@@ -106,12 +126,15 @@
                 <pivot string="Teachers App"> 
             		<field name="teacher_name"/>
                     <field name="teacher_surname"/>
-                    <field name="teacher_salary"/>  
+                    <field name="teacher_salary"/>
+                    <field name="teacher_address"/>
+                    <field name="age"/> 
                     <field name="in_service"/>
                     <field name="join_date"/>
                     <field name="t_photo"/>
                     <field name="signed_on"/>
                     <field name="t_selection"/>
+                    <field name="blood_group"/>
                 </pivot>
             </field>
         </record>
@@ -122,12 +145,15 @@
                 <calendar string="calendar" date_start="join_date">
    					<field name="teacher_name"/>
                     <field name="teacher_surname"/>
-                    <field name="teacher_salary"/>  
+                    <field name="teacher_salary"/>
+                    <field name="teacher_address"/>
+                    <field name="age"/> 
                     <field name="in_service"/>
                     <field name="join_date"/>
                     <field name="t_photo"/>
                     <field name="signed_on"/>
                     <field name="t_selection"/>
+                    <field name="blood_group"/>
            		</calendar>
             </field>
         </record>
@@ -140,15 +166,17 @@
 
 				<kanban class="o_kanban_mobile">
                     		
-                    		<field name="teacher_name"/>
-                            <field name="teacher_surname"/>
-                            <field name="teacher_salary"/>  
-                            <field name="in_service"/>
-                            <field name="join_date"/>
-                            <field name="t_photo"/>
-                            <field name="signed_on"/>
-                            <field name="t_selection"/>
-
+                    <field name="teacher_name"/>
+                    <field name="teacher_surname"/>
+                    <field name="teacher_salary"/>
+                    <field name="teacher_address"/>
+                    <field name="age"/> 
+                    <field name="in_service"/>
+                    <field name="join_date"/>
+                    <field name="t_photo"/>
+                    <field name="signed_on"/>
+                    <field name="t_selection"/>
+                    <field name="blood_group"/>
                     
                     <templates>
                         <t t-name="kanban-box">

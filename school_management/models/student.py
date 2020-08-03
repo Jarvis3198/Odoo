@@ -1,6 +1,6 @@
 
-from odoo import api, fields, models
-
+from odoo import api, fields, models, _
+from odoo.exceptions import ValidationError
 
 class Student(models.Model):
     _name = "student.student"
@@ -16,7 +16,7 @@ class Student(models.Model):
     student_Physics_marks = fields.Float(string="Student Physics marks")
     student_Chemistry_marks = fields.Float(string="Student Chemistry Marks")
     student_Math_marks = fields.Float(string="Student Math Marks")
-    currently_studying = fields.Boolean(string="Currently studying?")
+    currently_studying = fields.Boolean(string="Currently studying?", compute="ffunc3", store=True)
     medical_problems = fields.Text(string='Medical problems if any')
     blood_group = fields.Selection([ ('o+', 'O Positive'),('a+', 'A Positive'),('b+', 'B Positive'),('AB+', 'AB Positive')], string='Blood Group')
     join_date = fields.Date(string="Join Date")
@@ -50,10 +50,23 @@ class Student(models.Model):
 
     def write(self, vals):
         res = super(Student, self).write(vals)
-        print("Write Method Called")
         return res
 
     def unlink(self):
         res = super(Student, self).unlink()
         print("Unlink method called")
         return res
+
+    @api.onchange('student_name')
+    def ffunc1(self):
+        self.age = 50
+
+    @api.constrains('student_surname')
+    def ffunc2(self):
+        if self.student_name == self.student_surname:
+            raise ValidationError("Name and Surname can't be the same")
+
+    @api.depends('student_marks')
+    def ffunc3(self):
+        if self.student_marks != 0.0 and not self.currently_studying:
+            raise ValidationError(_("How can you have marks without studying"))

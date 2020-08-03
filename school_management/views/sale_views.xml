@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_quotation_tree_cust" model="ir.ui.view">
+            <field name="name">sale.order.tree.cust</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_quotation_tree"/><!-- module.ref_id(tree/form) -->
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='commitment_date']" position="after"><!-- after/before/inside/attributes -->
+                    <field name="my_cust"/>
+                </xpath>
+            </field>
+        </record>
+         <record id="view_order_form_cust" model="ir.ui.view">
+            <field name="name">sale.order.form.cust</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/><!-- module.ref_id(tree/form) -->
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='payment_term_id']" position="before"><!-- after/before/inside/attributes -->
+                    <field name="my_cust"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

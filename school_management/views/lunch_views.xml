@@ -9,8 +9,7 @@
                     <sheet>
                         <group>
                         <field name="lunch_name"/>
-                        <!-- <field name="recess_id"/> -->
-                        <!-- <field name="recess_ids" widget="many2many_tags"/> -->
+                        <field name="recess_ids" /> 
                         </group>
                     </sheet>
                 </form>
@@ -22,8 +21,8 @@
             <field name="arch" type="xml">
                 <tree string="lunch tree">
                     <field name="lunch_name"/>
-                    <!-- <field name="recess_id"/> -->
-                    <!-- <field name="recess_ids" widget="many2many_tags"/> -->
+                    <field name="recess_id"/>
+                    <field name="recess_ids" /> 
                 </tree>
             </field>
         </record>
@@ -33,8 +32,8 @@
             <field name="arch" type="xml">
                 <search string="lunch search">
                     <field name="lunch_name"/>
-                    <!-- <field name="recess_id"/> -->
-                    <!-- <field name="recess_ids" widget="many2many_tags"/> -->
+                    <field name="recess_id"/> 
+                    <field name="recess_ids"/> 
                 </search>
             </field>
         </record>

@@ -33,3 +33,14 @@ class Lunch(models.Model):
     @api.depends('lunch_name')
     def fun3(self):
         print("API Depends Called")
+
+    
+  #  def copy(self, default=None):
+        
+
+
+ #   def search:
+    
+   # def read(self, fields=None, load='_classic_read'):
+      #  print("Search was called")
+#    def search_read:

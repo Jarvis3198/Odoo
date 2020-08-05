@@ -12,7 +12,7 @@
             </field>
         </record>
 
-        <!-- <record id="view_quotation_tree_cust" model="ir.ui.view">
+        <record id="view_quotation_tree_cust" model="ir.ui.view">
             <field name="name">sale.order.tree.cust3</field>
             <field name="model">sale.order</field>
             <field name="inherit_id" ref="sale.view_order_form"/>
@@ -21,53 +21,29 @@
                     <field name="my_cust"/>
                 </xpath>
             </field>
-        </record> -->
+        </record> 
 
-        <record id="view_invoice_cust" model="ir.ui.view">
-            <field name="name">account.move.form.cust</field>
-            <field name="model">account.move</field>
-            <field name="inherit_id" ref="account.view_move_form"/><!-- module.ref_id(tree/form) -->
-            <field name="arch" type="xml">
-                <xpath expr="//field[@name='invoice_date']" position="after"><!-- after/before/inside/attributes -->
-                    <field name="abcd"/>
-                </xpath>
-            </field>
-        </record>
-
-        <record id="view_invoice_cust2" model="ir.ui.view">
-            <field name="name">account.move.form.cust</field>
-            <field name="model">account.move</field>
-            <field name="inherit_id" ref="account.view_move_form"/><!-- module.ref_id(tree/form) -->
-            <field name="arch" type="xml">
-                <xpath expr="//field[@name='invoice_payment_term_id']" position="after"><!-- after/before/inside/attributes -->
-                    <field name="efgh"/>
-                </xpath>
-            </field>
-        </record>
-
-        <record id="view_invoice_cust3" model="ir.ui.view">
-            <field name="name">account.move.form.cust</field>
-            <field name="model">account.move</field>
-            <field name="inherit_id" ref="account.view_move_form"/><!-- module.ref_id(tree/form) -->
-            <field name="arch" type="xml">
-                <xpath expr="//page[@name='other_info']//field[@name='invoice_incoterm_id']" position="after"><!-- after/before/inside/attributes -->
-                    
-                    <field name="efgh"/>
-                    
-                </xpath>
-            </field>
-        </record>
-
-      <record id="view_form_2" model="ir.ui.view">
-            <field name="name">sale.order.form.field2</field>
+        <record id="view_form_2" model="ir.ui.view">
+            <field name="name">sale.order.line.field2</field>
             <field name="model">sale.order</field>
             <field name="inherit_id" ref="sale.view_order_form"/> 
             <field name="arch" type="xml">
-                <xpath expr="//page[@name='order_lines']//tree/field[@name='product_uom_qty']" position="before">
+                <xpath expr="//field[@name='order_line']/tree//field[@name='product_uom_qty']" position="before">
                     <field name="my_field2"/> 
                 </xpath>
             </field>
-    </record>
+        </record> 
+
+        <record id="view_form_3" model="ir.ui.view">
+            <field name="name">sale.order.line.field2</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/> 
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='other_information']//field[@name='invoice_status']" position="after">
+                    <field name="my_field2"/> 
+                </xpath>
+            </field>
+        </record> 
 
 
     

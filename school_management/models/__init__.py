@@ -6,3 +6,4 @@ from . import subject
 from . import lunch
 from . import recess
 from . import sale
+from . import invoice

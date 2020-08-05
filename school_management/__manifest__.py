@@ -8,7 +8,7 @@
     'description': """
     An app for mamagement of students and teachers
     """,
-    'depends': ['base', 'sale'],
+    'depends': ['base', 'sale','account'],
     'data': [
         'security/ir.model.access.csv',
         'views/student_views.xml',
@@ -16,7 +16,8 @@
         'views/subject_views.xml',
         'views/lunch_views.xml',
         'views/recess_views.xml',
-        'views/sale_views.xml'
+        'views/sale_views.xml',
+        'views/invoice_views.xml'
     ],
     'installable': True,
     'auto_install': False,

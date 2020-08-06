@@ -91,11 +91,11 @@ object - newly
 _name 
 
 
-..>.py
+-->.py
 _inherit = 'student.student'
 
 
-->>.xml
+-->.xml
 
 
 <field name="inheirt_id" ref="">

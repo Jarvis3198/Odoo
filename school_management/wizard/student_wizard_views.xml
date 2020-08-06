@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="view_student_wizard" model="ir.ui.view">
+            <field name="name">StudentWizard</field>
+            <field name="model">student.wizard</field>
+            <field name="arch" type="xml">
+                <form string="StudentWizard">
+                    <group>
+                        <group>
+                            <field name="my_wizard_field_name"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="action_process" string="Proceed" type="object"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_view_student_wizard" model="ir.actions.act_window">
+            <field name="name">Create invoices</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">student.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+</odoo>

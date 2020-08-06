@@ -1,5 +1,5 @@
 
-from odoo import fields, models
+from odoo import fields, models, api
 
 
 class Teacher(models.Model):
@@ -37,3 +37,5 @@ class Teacher(models.Model):
     def action_go_backward(self):
         self.write({'state': 'draft'})
         self.write({'in_service': False})
+
+   

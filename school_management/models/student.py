@@ -49,12 +49,36 @@ class Student(models.Model):
         return res
 
     def write(self, vals):
+        vals["student_Physics_marks"] = "74"
         res = super(Student, self).write(vals)
         return res
 
     def unlink(self):
+        if self.age < 25: 
+            raise ValidationError("Younger than 25 cant self delete")
         res = super(Student, self).unlink()
         print("Unlink method called")
+        return res
+
+    def copy(self, default=None):
+        if self.age > 75:
+            raise ValidationError("Older than 75 cant self copy")
+        res = super(Student, self).copy(default)
+        return res
+
+    def copy_data(self, default=None):
+        if self.teacher_id.teacher_name == False:
+            raise ValidationError("Teacher needed to duplicate")
+        res =  super().copy_data(default)
+        return res
+
+    def name_get(self):
+        return [(student.id, student.student_name or _('No name')) for student in self]
+
+    @api.model
+    def _name_search(self, name, args=None, operator='ilike', limit=100, name_get_uid=None):
+        res = super(Student, self)._name_search(name, args, operator, limit, name_get_uid)
+        print("=======================",res)
         return res
 
     @api.onchange('student_name')
@@ -70,3 +94,11 @@ class Student(models.Model):
     def ffunc3(self):
         if self.student_marks != 0.0 and not self.currently_studying:
             raise ValidationError(_("How can you have marks without studying"))
+
+
+    def search(self, args, offset=0, limit=None, order=None, count=False):
+        
+        print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa search reduce")
+        res = super(Student, self).search( args, offset, limit, order, count)
+        print("=======================", res)
+        return res

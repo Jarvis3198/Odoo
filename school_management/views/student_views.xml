@@ -9,6 +9,7 @@
                     <header>
                         <button name="action_state_graduate" string="Graduate" type="object" states="studying" class="oe_highlight"/>
                         <button name="action_state_enroll" string="Enroll" type="object" states="done" />
+                         <button name="%(school_management.action_view_student_wizard)d" string="My Wizard" type="action"/>
                         <field name="state" widget="statusbar" statusbar_visible="studying,done"/>
                     </header>
                     <sheet>

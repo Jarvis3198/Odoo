@@ -91,9 +91,3 @@ class Student(models.Model):
                 total += student.student_Math_marks
             student.student_marks = total/3        
             total = 0
-
-    def search(self, args, offset=0, limit=None, order=None, count=False):
-        print("search")
-        res = super(Student, self).search( args, offset, limit, order, count)
-        print("=======================", res)
-        return res

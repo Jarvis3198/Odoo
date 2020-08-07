@@ -6,10 +6,29 @@
             <field name="model">lunch.lunch</field>
             <field name="arch" type="xml">
                 <form string="lunch form">
+                    <header>
+                        <button name="%(school_management.action_view_lunch_wizard)d" string="Lunch Wizard" type="action"/>
+                    </header>
                     <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="smartbutton" type="object" class="oe_stat_button" icon="fa-globe icon">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Smart</span>
+                                <span class="o_stat_text">Button</span>
+                            </div>
+                            </button>
+                            <button name="smartbutton" type="object" class="oe_stat_button" icon="fa-globe icon">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Another Smart</span>
+                                <span class="o_stat_text">Button</span>
+                            </div>
+                            </button>
+                        </div>
+                        
                         <group>
                         <field name="lunch_name"/>
-                        <field name="recess_ids" /> 
+                        <field name="recess_ids" />
+                        <field name="lunch_type" /> 
                         </group>
                     </sheet>
                 </form>
@@ -22,7 +41,8 @@
                 <tree string="lunch tree">
                     <field name="lunch_name"/>
                     <field name="recess_id"/>
-                    <field name="recess_ids" /> 
+                    <field name="recess_ids" />
+                    <field name="lunch_type" />  
                 </tree>
             </field>
         </record>
@@ -34,6 +54,7 @@
                     <field name="lunch_name"/>
                     <field name="recess_id"/> 
                     <field name="recess_ids"/> 
+                    <field name="lunch_type" /> 
                 </search>
             </field>
         </record>

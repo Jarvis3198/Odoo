@@ -77,10 +77,10 @@ ORM- methods
 - def read
 - def search_read
 
-- def fields_view_get()---- object architechture return ---> form/tree firles + data
+- def fields_view_get()---- object architechture return ---> form/tree firles + data *>
 - def fields_get-->>>  fields uper kuch perfrom krna he ---  name >. required 
 
-- def read_group
+- def read_group *
 
 
 

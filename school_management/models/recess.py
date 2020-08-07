@@ -6,7 +6,7 @@ class Recess(models.Model):
     _description = 'My recess Object'
     _rec_name = 'recess_name'
 
-    recess_name = fields.Char(String="Subject name", copy=False)
+    recess_name = fields.Char(String="Recess time", copy=False)
     lunch_id = fields.Many2one('lunch.lunch', string="Lunch")
     
     

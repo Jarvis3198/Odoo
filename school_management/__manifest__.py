@@ -8,10 +8,11 @@
     'description': """
     An app for mamagement of students and teachers
     """,
-    'depends': ['base', 'sale','account'],
+    'depends': ['base', 'sale', 'account'],
     'data': [
         'security/ir.model.access.csv',
         'wizard/student_wizard_views.xml',
+        'wizard/lunch_wizard_views.xml',
         'views/student_views.xml',
         'views/teacher_views.xml',
         'views/subject_views.xml',

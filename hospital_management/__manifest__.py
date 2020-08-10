@@ -13,6 +13,7 @@
         'security/ir.model.access.csv',
         'views/doctor_views.xml',
         'views/patient_views.xml',
+        'views/treatment_views.xml',
     ],
     'installable': True,
     'auto_install': False,

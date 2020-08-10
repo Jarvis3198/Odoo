@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="treatment_view_order_form" model="ir.ui.view">
+            <field name="name">treatment.treatment.form</field>
+            <field name="model">treatment.treatment</field>
+            <field name="arch" type="xml">
+                <form string="Treatment App">
+                    <sheet>      
+                    <notebook>
+                        <page name="Treatment General info" string="Treatment General info">
+                            <group col="4">
+                                <field name="treatment_name" required="True"/>
+                                <field name="treatment_date"/>
+                                <field name="doctor_id"/>
+                                <field name="patient_id"/>
+                            </group>
+                        </page>
+
+                    </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="treatment_view_order_tree" model="ir.ui.view">
+            <field name="name">treatment.treatment.tree</field>
+            <field name="model">treatment.treatment</field>
+            <field name="arch" type="xml">
+                <tree string="Treatment App">
+                    <field name="treatment_name" required="True"/>
+                    <field name="treatment_date"/>
+                    <field name="doctor_id"/>
+                    <field name="patient_id"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="treatment_view_order_search" model="ir.ui.view">
+            <field name="name">treatment.treatment.search</field>
+            <field name="model">treatment.treatment</field>
+            <field name="arch" type="xml">
+                <search string="Treatment App">
+                    <field name="treatment_name" required="True"/>
+                    <field name="treatment_date"/> 
+                    <field name="doctor_id"/>
+                    <field name="patient_id"/> 
+
+                </search>
+            </field>
+        </record>
+
+
+
+        <record id="treatment_view_order_calender" model="ir.ui.view">
+            <field name="name">treatment.treatment.calender</field>
+            <field name="model">treatment.treatment</field>
+            <field name="arch" type="xml">
+                <calendar string="Treatment App" date_start="treatment_date">
+                    <field name="treatment_name" required="True"/>
+                    <field name="treatment_date"/> 
+                    <field name="doctor_id"/>
+                    <field name="patient_id"/> 
+ 
+                </calendar>
+            </field>
+        </record>
+
+        <record id="treatment_view_order_pivot" model="ir.ui.view">
+            <field name="name">treatment.treatment.pivot</field>
+            <field name="model">treatment.treatment</field>
+            <field name="arch" type="xml">
+                <pivot string="Treatment App">
+                    <field name="treatment_name" required="True"/>
+                    <field name="treatment_date"/> 
+                    <field name="doctor_id"/>
+                    <field name="patient_id"/> 
+
+                </pivot>
+            </field>
+        </record>
+
+       
+        <record id="action_treatments_order" model="ir.actions.act_window">
+            <field name="name">Treatment</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">treatment.treatment</field>
+            <field name="view_mode">tree,form,pivot,calendar</field>
+            
+        </record>
+        
+        
+        <menuitem id="treatment_order"
+            name="Treatment"
+            parent="hospital_management_root"
+            action="action_treatments_order"
+            sequence="3"/>
+
+    </data>
+</odoo>

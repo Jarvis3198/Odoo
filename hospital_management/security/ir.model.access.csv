@@ -1,3 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_doctor_doctor,access_doctor_doctor,model_doctor_doctor,,1,1,1,1
 access_patient_patient,access_patient_patient,model_patient_patient,,1,1,1,1
+access_treatment_treatment,access_treatment_treatment,model_treatment_treatment,,1,1,1,1

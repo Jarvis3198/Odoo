@@ -2,6 +2,7 @@
 from odoo import api, fields, models, _
 from odoo.exceptions import ValidationError
 
+
 class Student(models.Model):
     _name = "student.student"
     _description = 'My Student Module'
@@ -16,13 +17,17 @@ class Student(models.Model):
     student_Physics_marks = fields.Float(string="Student Physics marks")
     student_Chemistry_marks = fields.Float(string="Student Chemistry Marks")
     student_Math_marks = fields.Float(string="Student Math Marks")
-    currently_studying = fields.Boolean(string="Currently studying?", store=True)
+    currently_studying = fields.Boolean(
+        string="Currently studying?", store=True)
     medical_problems = fields.Text(string='Medical problems if any')
-    blood_group = fields.Selection([ ('o+', 'O Positive'),('a+', 'A Positive'),('b+', 'B Positive'),('AB+', 'AB Positive')], string='Blood Group')
+    blood_group = fields.Selection([('o+', 'O Positive'), ('a+', 'A Positive'),
+                                    ('b+', 'B Positive'), ('AB+', 'AB Positive')], string='Blood Group')
     join_date = fields.Date(string="Join Date")
     s_photo = fields.Image(string="Student Photo")
-    signed_on = fields.Datetime(string="Signed On", help="Date of the signature.",copy=False)
-    s_selection = fields.Selection([ ('sel1', 'Semester 1'),('sel2', 'Semester 2'),('sel3', 'Semester 3'),('sel4', 'Semester 4')], string='Semester Selection' ,default="sel1")
+    signed_on = fields.Datetime(
+        string="Signed On", help="Date of the signature.", copy=False)
+    s_selection = fields.Selection([('sel1', 'Semester 1'), ('sel2', 'Semester 2'), (
+        'sel3', 'Semester 3'), ('sel4', 'Semester 4')], string='Semester Selection', default="sel1")
     sequence = fields.Integer(string='Sequence', default=10)
 
     state = fields.Selection([
@@ -48,7 +53,6 @@ class Student(models.Model):
         res.age = 25
         return res
 
-
     def copy(self, default=None):
         if self.age > 75:
             raise ValidationError("Older than 75 cant self copy")
@@ -58,7 +62,7 @@ class Student(models.Model):
     def copy_data(self, default=None):
         if self.teacher_id.teacher_name == False:
             raise ValidationError("Teacher needed to duplicate")
-        res =  super().copy_data(default)
+        res = super().copy_data(default)
         return res
 
     def name_get(self):
@@ -66,8 +70,9 @@ class Student(models.Model):
 
     @api.model
     def _name_search(self, name, args=None, operator='ilike', limit=100, name_get_uid=None):
-        res = super(Student, self)._name_search(name, args, operator, limit, name_get_uid)
-        print("=======================",res)
+        res = super(Student, self)._name_search(
+            name, args, operator, limit, name_get_uid)
+        print("=======================", res)
         return res
 
     @api.onchange('student_name')
@@ -89,5 +94,5 @@ class Student(models.Model):
                 total += student.student_Chemistry_marks
             if student.student_Math_marks:
                 total += student.student_Math_marks
-            student.student_marks = total/3        
+            student.student_marks = total/3
             total = 0

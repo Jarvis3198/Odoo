@@ -15,14 +15,21 @@
                                 <field name="doctor_name" required="True"/>
                                 <field name="doctor_surname"/>
                                 <field name="doctor_address"/>
-                                <field name="age"/>
+                                <field name="doctor_age"/>
 
                             </group>
                         </page>
 
                         <page name="Doctor Biographic info" string="Doctor Biographic info">        
                             <group col="4">    
-
+                                <field name="doctor_sex"/>
+                                <field name="doctor_nationality"/>
+                                <field name="doctor_photo"/>
+                                <field name="doctor_phone"/>
+                                <field name="doctor_height"/>
+                                <field name="doctor_weight"/>
+                                <field name="doctor_DOB"/>
+                                <field name="doctor_joindate"/>
                             </group>
                         </page>
                     </notebook>
@@ -35,9 +42,19 @@
             <field name="model">doctor.doctor</field>
             <field name="arch" type="xml">
                 <tree string="Doctor App">
-                    <field name="doctor_name"/>
+                    <field name="doctor_name" required="True"/>
+                    <field name="doctor_surname"/>
                     <field name="doctor_address"/>
-                    <field name="age"/>
+                    <field name="doctor_age"/>
+                    <field name="doctor_sex"/>
+                    <field name="doctor_nationality"/>
+                    <field name="doctor_photo"/>
+                    <field name="doctor_phone"/>
+                    <field name="doctor_height"/>
+                    <field name="doctor_weight"/>
+                    <field name="doctor_DOB"/>
+                    <field name="doctor_joindate"/>          
+
                 </tree>
             </field>
         </record>
@@ -46,9 +63,18 @@
             <field name="model">doctor.doctor</field>
             <field name="arch" type="xml">
                 <search string="Doctor App">
-                    <field name="doctor_name"/>
+                    <field name="doctor_name" required="True"/>
+                    <field name="doctor_surname"/>
                     <field name="doctor_address"/>
-                    <field name="age"/>
+                    <field name="doctor_age"/>
+                    <field name="doctor_sex"/>
+                    <field name="doctor_nationality"/>
+                    <field name="doctor_photo"/>
+                    <field name="doctor_phone"/>
+                    <field name="doctor_height"/>
+                    <field name="doctor_weight"/>
+                    <field name="doctor_DOB"/>
+                    <field name="doctor_joindate"/>  
 
                 </search>
             </field>
@@ -60,30 +86,49 @@
             <field name="arch" type="xml">
                 <graph string="Doctor App">
                     <field name="doctor_name"/>
-                    <field name="age"/>
+                    <field name="doctor_age"/>
+
                 </graph>
             </field>
         </record>
 
-        <!-- <record id="doctor_view_order_calender" model="ir.ui.view">
+        <record id="doctor_view_order_calender" model="ir.ui.view">
             <field name="name">doctor.doctor.calender</field>
             <field name="model">doctor.doctor</field>
             <field name="arch" type="xml">
-                <calendar string="Doctor App" date_start="join_date">
-                    <field name="doctor_name"/>
+                <calendar string="Doctor App" date_start="doctor_joindate">
+                    <field name="doctor_name" required="True"/>
+                    <field name="doctor_surname"/>
                     <field name="doctor_address"/>
-
+                    <field name="doctor_age"/>
+                    <field name="doctor_sex"/>
+                    <field name="doctor_nationality"/>
+                    <field name="doctor_photo"/>
+                    <field name="doctor_phone"/>
+                    <field name="doctor_height"/>
+                    <field name="doctor_weight"/>
+                    <field name="doctor_DOB"/>
                 </calendar>
             </field>
-        </record> -->
+        </record>
 
         <record id="doctor_view_order_pivot" model="ir.ui.view">
             <field name="name">doctor.doctor.pivot</field>
             <field name="model">doctor.doctor</field>
             <field name="arch" type="xml">
                 <pivot string="Doctor App">
-                    <field name="doctor_name"/>
+                    <field name="doctor_name" required="True"/>
+                    <field name="doctor_surname"/>
                     <field name="doctor_address"/>
+                    <field name="doctor_age"/>
+                    <field name="doctor_sex"/>
+                    <field name="doctor_nationality"/>
+                    <field name="doctor_photo"/>
+                    <field name="doctor_phone"/>
+                    <field name="doctor_height"/>
+                    <field name="doctor_weight"/>
+                    <field name="doctor_DOB"/>
+                    <field name="doctor_joindate"/>  
 
                 </pivot>
             </field>
@@ -97,8 +142,18 @@
 
                 <kanban class="o_kanban_mobile">
                     
-                    <field name="doctor_name"/>
+                    <field name="doctor_name" required="True"/>
+                    <field name="doctor_surname"/>
                     <field name="doctor_address"/>
+                    <field name="doctor_age"/>
+                    <field name="doctor_sex"/>
+                    <field name="doctor_nationality"/>
+                    <field name="doctor_photo"/>
+                    <field name="doctor_phone"/>
+                    <field name="doctor_height"/>
+                    <field name="doctor_weight"/>
+                    <field name="doctor_DOB"/>
+                    <field name="doctor_joindate"/>  
 
 
                     
@@ -115,7 +170,7 @@
                                     <div class="oe_kanban_bottom_left">
                                         
                                         <div class="o_kanban_image">
-                                            <!-- <field name="s_photo" widget="image"/> -->
+                                            <field name="doctor_photo" widget="image"/>
                                         </div>
                                         
                                     </div>
@@ -144,7 +199,7 @@
             <field name="name">Doctor</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">doctor.doctor</field>
-            <field name="view_mode">tree,form,pivot,graph,kanban</field>
+            <field name="view_mode">tree,form,pivot,graph,kanban,calendar</field>
             
         </record>
         

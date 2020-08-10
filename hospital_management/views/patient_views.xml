@@ -20,13 +20,20 @@
                             		<field name="patient_name"/>
                             		<field name="patient_surname"/>
                             		<field name="patient_address"/>
-                            		<field name="age"/>
+                            		<field name="patient_sex"/>
                         		</group>
                         	</page>
 
                         	<page name="Patient Detailed Info" string="Patient Detailed info">
                             	<group col="4">
-
+                                    <field name="patient_nationality"/>
+                                    <field name="patient_age"/>
+                                    <field name="patient_photo"/>
+                                    <field name="patient_phone"/>
+                                    <field name="patient_height"/>
+                                    <field name="patient_weight"/>
+                                    <field name="patient_DOB"/>
+                                    <field name="patient_joindate"/>
                             	</group>
                             </page>
 
@@ -43,7 +50,15 @@
                 	<field name="patient_name"/>
                     <field name="patient_surname"/>
                     <field name="patient_address"/>
-                    <field name="age"/> 
+                    <field name="patient_sex"/>
+                    <field name="patient_nationality"/>
+                    <field name="patient_age"/>
+                    <field name="patient_photo"/>
+                    <field name="patient_phone"/>
+                    <field name="patient_height"/>
+                    <field name="patient_weight"/>
+                    <field name="patient_DOB"/>
+                    <field name="patient_joindate"/> 
 
                 </tree>
             </field>
@@ -56,7 +71,15 @@
                     <field name="patient_name"/>
                     <field name="patient_surname"/>
                     <field name="patient_address"/>
-                    <field name="age"/> 
+                    <field name="patient_sex"/>
+                    <field name="patient_nationality"/>
+                    <field name="patient_age"/>
+                    <field name="patient_photo"/>
+                    <field name="patient_phone"/>
+                    <field name="patient_height"/>
+                    <field name="patient_weight"/>
+                    <field name="patient_DOB"/>
+                    <field name="patient_joindate"/> 
                     
                 </search>
             </field>
@@ -66,7 +89,7 @@
             <field name="model">patient.patient</field>
             <field name="arch" type="xml">
                 <graph string="Patients App"> 
-                    <field name="age"  type="measure"/>
+                    <field name="patient_age"/>
                 </graph>
             </field>
         </record>
@@ -78,22 +101,39 @@
             		<field name="patient_name"/>
                     <field name="patient_surname"/>
                     <field name="patient_address"/>
-                    <field name="age"/> 
+                    <field name="patient_sex"/>
+                    <field name="patient_nationality"/>
+                    <field name="patient_age"/>
+                    <field name="patient_photo"/>
+                    <field name="patient_phone"/>
+                    <field name="patient_height"/>
+                    <field name="patient_weight"/>
+                    <field name="patient_DOB"/>
+                    <field name="patient_joindate"/> 
                 </pivot>
             </field>
         </record>
-<!--         <record id="patient_view_calendar" model="ir.ui.view">
+        
+        <record id="patient_view_calendar" model="ir.ui.view">
             <field name="name">patient.patient.calendar</field>
             <field name="model">patient.patient</field>
             <field name="arch" type="xml">
-                <calendar string="calendar" date_start="join_date">
+                <calendar string="calendar" date_start="patient_joindate">
    					<field name="patient_name"/>
                     <field name="patient_surname"/>
                     <field name="patient_address"/>
-                    <field name="age"/> 
+                    <field name="patient_sex"/>
+                    <field name="patient_nationality"/>
+                    <field name="patient_age"/>
+                    <field name="patient_photo"/>
+                    <field name="patient_phone"/>
+                    <field name="patient_height"/>
+                    <field name="patient_weight"/>
+                    <field name="patient_DOB"/>
+
            		</calendar>
             </field>
-        </record> -->
+        </record>
         
         <record id="patient_view_order_kanban" model="ir.ui.view">
             <field name="name">patient.patient.kanban</field>
@@ -106,7 +146,15 @@
                     <field name="patient_name"/>
                     <field name="patient_surname"/>
                     <field name="patient_address"/>
-                    <field name="age"/> 
+                    <field name="patient_sex"/>
+                    <field name="patient_nationality"/>
+                    <field name="patient_age"/>
+                    <field name="patient_photo"/>
+                    <field name="patient_phone"/>
+                    <field name="patient_height"/>
+                    <field name="patient_weight"/>
+                    <field name="patient_DOB"/>
+                    <field name="patient_joindate"/> 
 
                     
                     <templates>
@@ -122,7 +170,7 @@
                                     <div class="oe_kanban_bottom_left">
                                         
                                         <div class="o_kanban_image">
-											<!-- <field name="t_photo" widget="image"/> -->
+											<field name="patient_photo" widget="image"/>
 										</div>    
                                    
                                     </div>
@@ -151,7 +199,7 @@
             <field name="name">Patient</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">patient.patient</field>
-            <field name="view_mode">tree,form,pivot,graph,kanban</field>
+            <field name="view_mode">tree,form,pivot,graph,kanban,calendar</field>
         </record>
         
         <menuitem id="patient_order"

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="doctor_view_order_form" model="ir.ui.view">
+            <field name="name">doctor.doctor.form</field>
+            <field name="model">doctor.doctor</field>
+            <field name="arch" type="xml">
+                <form string="Doctor App">
+                    
+                    <sheet>
+                       
+                    <notebook>
+                        <page name="Doctor General info" string="Doctor General info">
+                            <group col="4">
+                                <field name="doctor_name" required="True"/>
+                                <field name="doctor_surname"/>
+                                <field name="doctor_address"/>
+                                <field name="age"/>
+
+                            </group>
+                        </page>
+
+                        <page name="Doctor Biographic info" string="Doctor Biographic info">        
+                            <group col="4">    
+
+                            </group>
+                        </page>
+                    </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="doctor_view_order_tree" model="ir.ui.view">
+            <field name="name">doctor.doctor.tree</field>
+            <field name="model">doctor.doctor</field>
+            <field name="arch" type="xml">
+                <tree string="Doctor App">
+                    <field name="doctor_name"/>
+                    <field name="doctor_address"/>
+                    <field name="age"/>
+                </tree>
+            </field>
+        </record>
+        <record id="doctor_view_order_search" model="ir.ui.view">
+            <field name="name">doctor.doctor.search</field>
+            <field name="model">doctor.doctor</field>
+            <field name="arch" type="xml">
+                <search string="Doctor App">
+                    <field name="doctor_name"/>
+                    <field name="doctor_address"/>
+                    <field name="age"/>
+
+                </search>
+            </field>
+        </record>
+
+        <record id="doctor_view_order_graph" model="ir.ui.view">
+            <field name="name">doctor.doctor.graph</field>
+            <field name="model">doctor.doctor</field>
+            <field name="arch" type="xml">
+                <graph string="Doctor App">
+                    <field name="doctor_name"/>
+                    <field name="age"/>
+                </graph>
+            </field>
+        </record>
+
+        <!-- <record id="doctor_view_order_calender" model="ir.ui.view">
+            <field name="name">doctor.doctor.calender</field>
+            <field name="model">doctor.doctor</field>
+            <field name="arch" type="xml">
+                <calendar string="Doctor App" date_start="join_date">
+                    <field name="doctor_name"/>
+                    <field name="doctor_address"/>
+
+                </calendar>
+            </field>
+        </record> -->
+
+        <record id="doctor_view_order_pivot" model="ir.ui.view">
+            <field name="name">doctor.doctor.pivot</field>
+            <field name="model">doctor.doctor</field>
+            <field name="arch" type="xml">
+                <pivot string="Doctor App">
+                    <field name="doctor_name"/>
+                    <field name="doctor_address"/>
+
+                </pivot>
+            </field>
+        </record>
+
+        <record id="doctor_view_order_kanban" model="ir.ui.view">
+            <field name="name">doctor.doctor.kanban</field>
+            <field name="model">doctor.doctor</field>
+            <field name="arch" type="xml">
+                
+
+                <kanban class="o_kanban_mobile">
+                    
+                    <field name="doctor_name"/>
+                    <field name="doctor_address"/>
+
+
+                    
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_card oe_kanban_global_click">
+                                <div class="o_kanban_record_top mb16">
+                                    <div class="o_kanban_record_headings mt4">
+                                       
+                                    </div>
+                                    
+                                </div>
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left">
+                                        
+                                        <div class="o_kanban_image">
+                                            <!-- <field name="s_photo" widget="image"/> -->
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="oe_kanban_bottom_right">
+                                        
+                                        <strong class="o_kanban_record_title"><span><t t-esc="record.doctor_name.value"/></span></strong>
+                                        <span> <t t-esc="record.doctor_address.value"/></span>
+                                        
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+
+
+
+
+            </field>
+        </record>
+
+        
+        <record id="action_doctors_order" model="ir.actions.act_window">
+            <field name="name">Doctor</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">doctor.doctor</field>
+            <field name="view_mode">tree,form,pivot,graph,kanban</field>
+            
+        </record>
+        
+        <menuitem id="hospital_management_root"
+            name="Hospital Management"
+            sequence="1"/>
+        
+        <menuitem id="doctor_order"
+            name="Doctor"
+            parent="hospital_management_root"
+            action="action_doctors_order"
+            sequence="1"/>
+
+    </data>
+</odoo>

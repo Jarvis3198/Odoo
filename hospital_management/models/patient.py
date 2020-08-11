@@ -21,3 +21,5 @@ class Patient(models.Model):
     patient_weight = fields.Integer(string="Phone Weight(kg)")
     patient_DOB = fields.Date(string="Patient Birthdate")
     patient_joindate = fields.Date(string="Patient Joindate")
+    treatment_ids = fields.One2many(
+        'treatment.treatment', 'patient_id', string="Treatment ID")

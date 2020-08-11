@@ -20,4 +20,5 @@ class Doctor(models.Model):
     doctor_weight = fields.Integer(string="Doctor Weight(kg)")
     doctor_DOB = fields.Date(string="Doctor Birthdate")
     doctor_joindate = fields.Date(string="Doctor Joindate")
-
+    treatment_ids = fields.One2many(
+        'treatment.treatment', 'patient_id', string="treatment_id")

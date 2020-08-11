@@ -9,5 +9,6 @@ class Treatment(models.Model):
 
     treatment_name = fields.Char(string="Treatment Name")
     treatment_date = fields.Date(string="Treatment Date")
+    treatment_cost = fields.Float(string="Treatment Cost(₹)")
     doctor_id = fields.Many2one('doctor.doctor', string="Doctor_Id")
     patient_id = fields.Many2one('patient.patient', string="Patient_Id")

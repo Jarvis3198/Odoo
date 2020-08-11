@@ -7,12 +7,18 @@
             <field name="arch" type="xml">
                 <form string="Patients App">
            
-               
+                    <header>
+
+                        <button name="%(hospital_management.action_view_patient_wizard)d" string="Generate Invoice" type="action"/>
+
+
+                    </header>
                
 
                     <sheet>
                         
                     	<notebook>
+
                     	
                     		<page name="Patient General Info" string="Patient info">
                         
@@ -21,6 +27,7 @@
                             		<field name="patient_surname"/>
                             		<field name="patient_address"/>
                             		<field name="patient_sex"/>
+                                    <field name="treatment_ids" widget="many2many_tags"/>
                         		</group>
                         	</page>
 
@@ -58,7 +65,8 @@
                     <field name="patient_height"/>
                     <field name="patient_weight"/>
                     <field name="patient_DOB"/>
-                    <field name="patient_joindate"/> 
+                    <field name="patient_joindate"/>
+                    <field name="treatment_ids" widget="many2many_tags"/> 
 
                 </tree>
             </field>
@@ -80,6 +88,7 @@
                     <field name="patient_weight"/>
                     <field name="patient_DOB"/>
                     <field name="patient_joindate"/> 
+                    <field name="treatment_ids" widget="many2many_tags"/>
                     
                 </search>
             </field>
@@ -130,6 +139,7 @@
                     <field name="patient_height"/>
                     <field name="patient_weight"/>
                     <field name="patient_DOB"/>
+                    <field name="treatment_ids" widget="many2many_tags"/>
 
            		</calendar>
             </field>
@@ -154,7 +164,8 @@
                     <field name="patient_height"/>
                     <field name="patient_weight"/>
                     <field name="patient_DOB"/>
-                    <field name="patient_joindate"/> 
+                    <field name="patient_joindate"/>
+                    <field name="treatment_ids" widget="many2many_tags"/> 
 
                     
                     <templates>

@@ -16,7 +16,7 @@
                                 <field name="doctor_surname"/>
                                 <field name="doctor_address"/>
                                 <field name="doctor_age"/>
-
+                                <field name="treatment_ids" widget="many2many_tags"/>
                             </group>
                         </page>
 
@@ -53,7 +53,8 @@
                     <field name="doctor_height"/>
                     <field name="doctor_weight"/>
                     <field name="doctor_DOB"/>
-                    <field name="doctor_joindate"/>          
+                    <field name="doctor_joindate"/>
+                    <field name="treatment_ids" widget="many2many_tags"/>          
 
                 </tree>
             </field>
@@ -74,7 +75,8 @@
                     <field name="doctor_height"/>
                     <field name="doctor_weight"/>
                     <field name="doctor_DOB"/>
-                    <field name="doctor_joindate"/>  
+                    <field name="doctor_joindate"/>
+                    <field name="treatment_ids" widget="many2many_tags"/>  
 
                 </search>
             </field>

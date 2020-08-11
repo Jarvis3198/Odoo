@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="view_Patient_wizard" model="ir.ui.view">
+            <field name="name">PatientWizard</field>
+            <field name="model">patient.wizard</field>
+            <field name="arch" type="xml">
+                <form string="PatientWizard">
+                    <sheet>
+                    <group>
+                        <group>
+                            <field name="treatment_id"/>
+                        </group>
+                    </group>
+                    </sheet>
+                    <footer>
+                        <button name="action_process_patient" string="Add patient" type="object"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_view_patient_wizard" model="ir.actions.act_window">
+            <field name="name">Create</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">patient.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+</odoo>

@@ -11,4 +11,4 @@ class DoctorWizard(models.TransientModel):
     doctor_wizard = fields.Char(string="Doctor_Wizard")
 
     def action_process(self):
-        print("")
+        print(".....")

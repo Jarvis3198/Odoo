@@ -76,7 +76,14 @@
                     <field name="doctor_weight"/>
                     <field name="doctor_DOB"/>
                     <field name="doctor_joindate"/>
-                    <field name="treatment_ids" widget="many2many_tags"/>  
+                    <field name="treatment_ids" widget="many2many_tags"/>
+                    <filter string="Experienced" domain="[('doctor_age', '&gt;', '40')]" name="my_doctor_orders_filter_primary"/>
+                    <filter string="Moderate" domain="[('doctor_age', '&lt;', '35')]" name="my_doctor_orders_filter"/>
+                    <filter string="Trainee" domain="[('doctor_age', '&lt;', '25')]" name="my_doctor_orders_filter"/>
+                    <group expand="0" string="Group By">
+                        <filter string="Doctor Gender" name="doctor_sex" domain="[]" context="{'group_by': 'doctor_sex'}"/>
+                        <filter string="Doctor Nationality" name="doctor_nationality" domain="[]" context="{'group_by': 'doctor_nationality'}"/>
+                    </group>  
 
                 </search>
             </field>
@@ -202,6 +209,8 @@
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">doctor.doctor</field>
             <field name="view_mode">tree,form,pivot,graph,kanban,calendar</field>
+            <field name="context">{'search_default_my_doctor_orders_filter_primary': 1}</field>
+
             
         </record>
         

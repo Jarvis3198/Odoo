@@ -96,11 +96,5 @@
         </record>
         
         
-        <menuitem id="invoice_order"
-            name="Invoice"
-            parent="hospital_management_root"
-            action="action_invoices_order"
-            sequence="3"/>
-
     </data>
 </odoo>

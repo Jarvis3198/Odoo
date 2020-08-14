@@ -8,7 +8,7 @@
     'description': """
     An app for mamagement of Hospitals
     """,
-    'depends': ['base'],
+    'depends': ['base', 'sale'],
     'data': [
         'security/ir.model.access.csv',
         'wizard/doctor_wizard_views.xml',
@@ -16,7 +16,9 @@
         'views/doctor_views.xml',
         'views/patient_views.xml',
         'views/treatment_views.xml',
-        'views/invoice_views.xml'
+        'views/invoice_views.xml',
+        'views/sale_views.xml',
+        'views/doc_inherit.xml'
     ],
     'installable': True,
     'auto_install': False,

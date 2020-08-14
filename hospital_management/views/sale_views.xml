@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_quotation_tree_field1" model="ir.ui.view">
+            <field name="name">sale.order.tree.field1</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/><!-- module.ref_id(tree/form) -->
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="after"><!-- after/before/inside/attributes -->
+                    <field name="inh_field1"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_quotation_tree_field2" model="ir.ui.view">
+            <field name="name">sale.order.tree.field2</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='other_information']//field[@name='user_id']" position="after">
+                    <field name="inh_field2"/>
+                </xpath>
+            </field>
+        </record> 
+
+        <record id="view_form_2" model="ir.ui.view">
+            <field name="name">sale.order.line.field3</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/> 
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='order_line']/tree//field[@name='product_uom_qty']" position="before">
+                   
+                </xpath>
+            </field>
+        </record> 
+
+ 
+
+    
+    </data>
+</odoo>

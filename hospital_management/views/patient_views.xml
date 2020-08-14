@@ -21,10 +21,34 @@
                            <span> <field name="patient_name" readonly="1"/> <field name="patient_surname" readonly="1"/> </span>
                         </h1>
                         </div>
+                        <group col="2">
                         <div class="o_td_label">
                                 <label for="patient_joindate" string="Joining Date:"/>
+                                <field name="patient_joindate"/>
+
                         </div>
 
+                        <div class="o_td_label">
+                                <label for="patient_age" string="Age:"/>
+                                <field name="patient_age"/>
+
+                        </div>
+                        <div class="o_td_label">
+                                <label for="patient_nationality" string="Nationality:"/>
+                                <field name="patient_nationality"/>
+
+                        </div>
+                        <div class="o_td_label">
+                                <label for="patient_height" string="Height:"/>
+                                <field name="patient_height"/>
+
+                        </div>
+                        <div class="o_td_label">
+                                <label for="patient_weight" string="Weight:"/>
+                                <field name="patient_weight"/>
+
+                        </div>
+                        </group>
                     	<notebook>
 
                     	

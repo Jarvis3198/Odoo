@@ -12,6 +12,7 @@ class PatientWizard(models.TransientModel):
         'treatment.treatment', string="Treatment Id")
 
     def action_process_patient(self):
-        res = self.env['patient.patient'].search('treatment_ids', '=', treatment_id)
+        res = self.env['patient.patient'].search(
+            'treatment_ids', '=', self.treatment_id)
         print(res)
         return res

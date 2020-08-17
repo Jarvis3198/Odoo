@@ -23,3 +23,5 @@ class Patient(models.Model):
     patient_joindate = fields.Date(string="Patient Joindate")
     treatment_ids = fields.One2many(
         'treatment.treatment', 'patient_id', string="Treatment ID")
+    my_treatment_id = fields.Many2one(
+        'treatment.treatment', string="Treatment Id")

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report 
+            id="action_report_treatement"
+            string="Treatment Rpeort"
+            model="treatment.treatment" 
+            report_type="qweb-pdf"
+            file="hospital_management.report_treatment_template" 
+            name="hospital_management.report_treatment_template"
+        />
+    </data>
+</odoo>

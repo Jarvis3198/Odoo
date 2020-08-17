@@ -60,6 +60,7 @@
                             		<field name="patient_address"/>
                             		<field name="patient_sex"/>
                                     <field name="treatment_ids" widget="many2many_tags"/>
+                                    <field name="my_treatment_id"/>
                         		</group>
                         	</page>
 

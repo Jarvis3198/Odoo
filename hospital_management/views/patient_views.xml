@@ -9,13 +9,28 @@
            
                     <header>
 
-                        <button name="%(hospital_management.action_view_patient_wizard)d" string="Generate Invoice" type="action"/>
-
+                        <button name="%(hospital_management.action_view_patient_wizard)d" string="View Doctor" type="action"/>
+                        <button name="action_quotation_send" string="Send Email" type="object"/>
 
                     </header>
                
 
                     <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="smartbutton" type="object" class="oe_stat_button" icon="fa-globe icon">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Open</span>
+                                <span class="o_stat_text">Treatment</span>
+                            </div>
+                            </button>
+                            <button name="smartbutton1" type="object" class="oe_stat_button" icon="fa-globe icon">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Open</span>
+                                <span class="o_stat_text">Doctor</span>
+                            </div>
+                            </button>
+                        </div>
+
                         <div class="oe_title">
                         <h1>
                            <span> <field name="patient_name" readonly="1"/> <field name="patient_surname" readonly="1"/> </span>

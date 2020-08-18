@@ -8,12 +8,12 @@
                     <sheet>
                     <group>
                         <group>
-                            <field name="treatment_id"/>
+                            
                         </group>
                     </group>
                     </sheet>
                     <footer>
-                        <button name="action_process_patient" string="Add patient" type="object"/>
+                        <button name="action_process_patient" string="Open Doctor" type="object"/>
                         <button string="Cancel" class="btn-secondary" special="cancel"/>
                     </footer>
                 </form>

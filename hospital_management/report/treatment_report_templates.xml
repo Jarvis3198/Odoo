@@ -7,9 +7,21 @@
                 <div class="page">
                     <div class="oe_structure" />
                     <h2 class="mt16">
-                       aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                       <span t-field="doc.treatment_name"/>
                     </h2>
-                    <span t-field="doc.treatment_name"/>
+                    <h3> Treatment Date:
+                    <span t-field="doc.treatment_date"/>
+                    </h3>
+                    <h3> Treatment Cost:
+                    <span t-field="doc.treatment_cost"/>
+                    ₹
+                    </h3>
+                    <h2> Signed By:
+                    <span t-field="doc.doctor_id"/>
+                    
+                    Patient Name:
+                    <span t-field="doc.patient_id"/>
+                    </h2>
                 </div>
             </t>
         </template>

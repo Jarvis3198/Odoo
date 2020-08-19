@@ -15,6 +15,8 @@
         'wizard/patient_wizard_views.xml',
         'report/report_action.xml',
         'report/treatment_report_templates.xml',
+        'report/doc_report_action.xml',
+        'report/doctor_report_templates.xml',
         'views/doctor_views.xml',
         'views/patient_views.xml',
         'views/treatment_views.xml',

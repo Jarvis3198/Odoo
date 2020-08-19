@@ -10,7 +10,7 @@
                     <header>
 
                         <button name="%(hospital_management.action_view_patient_wizard)d" string="View Doctor" type="action"/>
-                        <button name="action_quotation_send" string="Send Email" type="object"/>
+                        
 
                     </header>
                

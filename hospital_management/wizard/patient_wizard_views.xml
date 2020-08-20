@@ -9,6 +9,9 @@
                     <group>
                         <group>
                             <field name="doctor_id"/>
+                            <field name="w_doctor_address"/>
+                            <field name="w_doctor_age"/>
+                            <field name="w_doctor_sex"/>
                         </group>
                     </group>
                     </sheet>

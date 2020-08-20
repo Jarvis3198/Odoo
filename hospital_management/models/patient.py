@@ -26,7 +26,6 @@ class Patient(models.Model):
     my_treatment_id = fields.Many2one(
         'treatment.treatment', string="Treatment Id")
 
-    @api.multi
     def smartbutton(self):
 
         parent_id = self._context.get('active_ids')

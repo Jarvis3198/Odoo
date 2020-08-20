@@ -13,10 +13,18 @@ class PatientWizard(models.TransientModel):
     doctor_id = fields.Many2one(
         'doctor.doctor', string="Doctor ID")
 
+    w_doctor_address = fields.Text(string='Doctor_Address')
+    w_doctor_age = fields.Integer(string="Age")
+    w_doctor_sex = fields.Selection(
+        [('M', 'Male'), ('F', 'Female')], string='Gender Selection')
+
     def action_process_patient(self):
 
         object1 = self.env['doctor.doctor'].search(
             [['doctor_name', '=', self.doctor_id.doctor_name]])
+        object1.doctor_address = self.w_doctor_address
+        object1.doctor_age = self.w_doctor_age
+        object1.doctor_sex = self.w_doctor_sex
 
         return {
             'name': ('Doctor'),

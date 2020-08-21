@@ -28,8 +28,9 @@ class Patient(models.Model):
 
     def smartbutton(self):
 
-        parent_id = self._context.get('active_ids')
-        print(parent_id)
+        obj = self.env['treatment.treatment'].search(
+            [['patient_id', '=', self.patient_name]])
+        print(obj)
         #treatment = self.env['treatment.treatment'].browse(parent_id)
         # print(treatment)
 
@@ -38,18 +39,28 @@ class Patient(models.Model):
             'view_type': 'form',
             'view_mode': 'form',
             'res_model': 'treatment.treatment',
+            'res_id': obj.id,
             'view_id': False,
             'type': 'ir.actions.act_window',
-            'target': 'new'
+            'target': '_blank'
         }
 
     def smartbutton1(self):
+
+        obj = self.env['treatment.treatment'].search(
+            [['patient_id', '=', self.patient_name]])
+        id = obj.doctor_id.id
+
+        obj1 = self.env['doctor.doctor'].browse(id)
+        print(obj1)
+
         return {
             'name': ('Doctor'),
             'view_type': 'form',
             'view_mode': 'form',
             'res_model': 'doctor.doctor',
+            'res_id': obj1.id,
             'view_id': False,
             'type': 'ir.actions.act_window',
-            'target': 'new'
+            'target': '_blank'
         }

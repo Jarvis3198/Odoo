@@ -102,6 +102,9 @@
             <field name="model">patient.patient</field>
             <field name="arch" type="xml">
                 <tree string="Patients App">
+                    <button name="smartbutton" type="object" string="Button"/>
+                            
+                   
                 	<field name="patient_name"/>
                     <field name="patient_surname"/>
                     <field name="patient_address"/>

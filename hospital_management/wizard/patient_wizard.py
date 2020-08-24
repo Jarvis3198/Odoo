@@ -17,6 +17,8 @@ class PatientWizard(models.TransientModel):
     w_doctor_age = fields.Integer(string="Age")
     w_doctor_sex = fields.Selection(
         [('M', 'Male'), ('F', 'Female')], string='Gender Selection')
+    w_treatment_ids = fields.Many2many(
+        'treatment.treatment', string="Treatment IDS")
 
     def action_process_patient(self):
 
@@ -32,12 +34,20 @@ class PatientWizard(models.TransientModel):
             'view_mode': 'form',
             'res_model': 'doctor.doctor',
             'res_id': object1.id,
-            # 'view_id': self.env.ref('hospital_management.doctor_view_order_form').id,
             'view_id': False,
             'type': 'ir.actions.act_window',
             'target': '_blank',
             'domain': '[]',
         }
+
+    def action_process_o2m(self):
+
+        parent_id = self._context.get('active_ids')
+        a = self.env['patient.patient'].browse(parent_id[0])
+        a.write({'treatment_ids': [(4, self.w_treatment_ids.id, 0)]})
+
+        #obj1 = self.env['patient.patient'].write(0, 0)
+        # print(obj1)
 
         #parent_id = self._context.get('active_ids')
         #patient = self.env['patient.patient'].browse(parent_id)

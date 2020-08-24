@@ -12,11 +12,14 @@
                             <field name="w_doctor_address"/>
                             <field name="w_doctor_age"/>
                             <field name="w_doctor_sex"/>
+
+                            <field name="w_treatment_ids" widget="many2many_tags"/>
                         </group>
                     </group>
                     </sheet>
                     <footer>
                         <button name="action_process_patient" string="Open Doctor" type="object"/>
+                        <button name="action_process_o2m" string="Update Treatment" type="object"/>
                         <button string="Cancel" class="btn-secondary" special="cancel"/>
                     </footer>
                 </form>

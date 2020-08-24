@@ -12,3 +12,5 @@ class Treatment(models.Model):
     treatment_cost = fields.Float(string="Treatment Cost(₹)")
     doctor_id = fields.Many2one('doctor.doctor', string="Doctor_Id")
     patient_id = fields.Many2one('patient.patient', string="Patient_Id")
+
+    #wiz_id = fields.Many2one('patient.wizard', string="Wiz")
